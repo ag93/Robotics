@@ -1,0 +1,23 @@
+CSE - 5364 - Autonomous Robots
+Homework 2 (Computer Vision)
+
+Developed by
+Name: Aniket Gade
+UTA ID: 1001505046
+
+
+
+1) Edge Detection
+	In this part of assignment, edge detection using convolution with the two Prewitt templates was performed. Two separate codes are written, one for vertical and one for horizontal edges. The source image (image[][]) was cross convoluted with the templates deriv_x_mask or deriv_y_mask (depending on orientation of the edges).In the concolution, the boundary pixels were ignored. After convolution, magnitude of the answer was written back to the output image (proc_img[][]). The solution of the convolution was divided by 3 inorder to keep the values in range, and after that the values above 255 were set to 255.
+
+2) Template Matching Using Normalized Convolution
+	In this part of assignment, template matching using normalized convolution was performed. For this, from every pixel of the source image, the mean value of the image was subtracted. Same was done with the template. The convolution of these two was then performed and the returned value was divided by the square of products of the variences of the souce image and the template.
+
+3) Segmentation Using Blob Coloring
+	In this part, segmentation of input image is done via blob coloring. For this the input image is iterated completely, intensites within a range of 10 are considered same. Labels are set accorgingly. We check for intensities of the neighbours. If same intensity is similar, same label is given. If intensity changes, we check the list of intensities for similar intensities. If a match is found, we set the same label to the current pixel as the one with whom the match was found. Else, we create a new label and add the intensity of that pixel to the intensity list. The output of this program gives, the total number of regions found and displays the intensities of the regions as the output image. An example of the output is given below:
+
+ Total Number of Regions :: 4
+Intensity if region 1 is 1
+Intensity if region 2 is 170
+Intensity if region 3 is 180
+Intensity if region 4 is 194
